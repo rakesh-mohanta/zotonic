@@ -79,7 +79,7 @@ m_value(#m{value=#m_search_result{result=Result}}, _Context) ->
 search({SearchName, Props}, Context) ->
     {OffsetLimitProps, Props1} = get_optional_paging_props(Props),
     OffsetLimit = case OffsetLimitProps of
-        {Page, PageLen} -> {(Page-1)*PageLen+1,PageLen};
+        {Page, PageLen} -> {(Page-1)*PageLen+1, PageLen};
         undefined -> undefined
     end,
     Result = z_search:search({SearchName, Props1}, OffsetLimit, Context),
@@ -95,7 +95,8 @@ search(SearchName, Context) ->
 %% @doc Perform a paged search, wrap the result in a m_search_result record
 %% @spec search_pager(Search, Context) -> #m_search_result{}
 search_pager({SearchName, Props}, Context) ->
-    {Page, PageLen, Props1} = get_paging_props(Props),
+    {OffsetLimitProps, Props1} = get_paging_props(Props),
+    {Page, PageLen} = OffsetLimitProps,
     Result = z_search:search_pager({SearchName, Props1}, Page, PageLen, Context),
     Total1 = case Result#search_result.total of
         undefined -> length(Result#search_result.result);
