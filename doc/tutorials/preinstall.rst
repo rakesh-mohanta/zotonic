@@ -1,8 +1,10 @@
 .. highlight:: sh
 .. _install-requirements:
 
-Installation prerequisites
-==========================
+Installation requirements
+=========================
+
+Zotonic runs on Linux, Mac OS X and (not officially) on Windows.
 
 Before running Zotonic, you must make sure your system meets the
 minimum requirements to do so. Zotonic needs the following software
@@ -141,14 +143,21 @@ to run with 'gmake' (make sure gmake is available first).
 Mac OS X
 ^^^^^^^^
 
-With MacPorts you can install Erlang and ImageMagick using the
+With Homebrew you can install Erlang and ImageMagick using the
 following commands::
+
+  brew install erlang
+  brew install imagemagick
+
+Alternatively, with MacPorts::
 
   sudo port install erlang +ssl
   sudo port install ImageMagick
 
-EnterpriseDB has an excellent PostgreSQL installer available at
-http://www.enterprisedb.com/products/pgdownload.do#osx
+For PostgreSQL choose either:
+
+* `EnterpriseDB <http://www.enterprisedb.com/products/pgdownload.do#osx>`_
+* `Postgress.app <http://postgresapp.com/>`_
 
 
 Windows
