@@ -21,7 +21,7 @@
                 {% endfor %}
             </td>
             <td>
-                <tt style="font-size: 90%">{{ app.consumer_key }}</tt>
+                <tt style="font-size: 70%">{{ app.consumer_key }}</tt>
             </td>
             <td>
                 <div class="pull-right">
@@ -30,7 +30,7 @@
                     {% button class="btn btn-mini" text=_"Delete" postback={start_del_app id=app.id} %}
                 </div>
 
-                <tt style="font-size: 90%">{{ app.consumer_secret }}</tt>
+                <tt style="font-size: 70%">{{ app.consumer_secret }}</tt>
             </td>
         </tr>
         {% wire id=#tr.id postback={start_edit_app id=id} %}
